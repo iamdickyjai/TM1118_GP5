@@ -6,30 +6,32 @@
 {%endblock%}
 
 {%block content%}
-
-{{avail_venue}}
+<span class="page-topic">Data</span>
+<div>
+  {{avail_venue}}
+</div>
 <table class="table">
-    <thead class="thead-dark">
-      <tr class="header">
-        <th scope="col">Node_id</th>
-        <th scope="col">Location</th>
-        <th scope="col">Temp</th>
-        <th scope="col">Humidity</th>
-        <th scope="col">Light</th>
-        <th scope="col">Sound Level</th>
-      </tr>
-    </thead>
-    <tbody>
-        {%for datum in data%}
-        <tr>
-            <th>{{datum.node_id}}</th>
-            <td>{{datum.loc}}</td>
-            <td>{{datum.temp}}</td>
-            <td>{{datum.hum}}</td>
-            <td>{{datum.light}}</td>
-            <td>{{datum.snd}}</td>
-        </tr>
-        {%endfor%}
-    </tbody>
-  </table>
+  <thead class="thead-dark">
+    <tr class="table-header">
+      <th scope="col" class="table-center">Node_id</th>
+      <th scope="col" class="table-center">Location</th>
+      <th scope="col" class="table-center">Temp</th>
+      <th scope="col" class="table-center">Humidity</th>
+      <th scope="col" class="table-center">Light</th>
+      <th scope="col" class="table-center">Sound Level</th>
+    </tr>
+  </thead>
+  <tbody>
+    {%for datum in data%}
+    <tr class="table-body">
+      <th class="table-center">{{datum.node_id}}</th>
+      <td class="table-center">{{datum.loc}}</td>
+      <td class="table-center">{{datum.temp}}</td>
+      <td class="table-center">{{datum.hum}}</td>
+      <td class="table-center">{{datum.light}}</td>
+      <td class="table-center">{{datum.snd}}</td>
+    </tr>
+    {%endfor%}
+  </tbody>
+</table>
 {%endblock%}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from . import iot_mqtt
+
+# from . import iot_mqtt
 from .models import Data
 from django.db.models import Count
 
@@ -14,9 +15,9 @@ def index(request):
                 skip = True
                 break
         if not skip:
-            venue.append(datum.loc)        
-    context={
-        'data': data,
-        'avail_venue': venue,
+            venue.append(datum.loc)
+    context = {
+        "data": data,
+        "avail_venue": venue,
     }
-    return render(request, "data.html", context = context)
+    return render(request, "data.html", context=context)
