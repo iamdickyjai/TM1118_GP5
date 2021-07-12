@@ -6,7 +6,7 @@ mqtt_broker = "ia.ic.polyu.edu.hk" # Broker
 mqtt_port = 1883 # Default
 mqtt_qos = 1 # Quality of Service = 1
 # !Test
-mqtt_topic = "iot/sensor-C05"
+mqtt_topic = "iot/sensor-CD"
 
 def mqtt_on_message(client, userdata, msg):
     # Do something

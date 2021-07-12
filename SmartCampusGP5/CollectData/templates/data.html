@@ -1,9 +1,14 @@
 {%extends 'base.html'%}
 
+{%block style%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'css/data.css'%}">
+{%endblock%}
+
 {%block content%}
 <table class="table">
     <thead class="thead-dark">
-      <tr>
+      <tr class="header">
         <th scope="col">Node_id</th>
         <th scope="col">Location</th>
         <th scope="col">Temp</th>

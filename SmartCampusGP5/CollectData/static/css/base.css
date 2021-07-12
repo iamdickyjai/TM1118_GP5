@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: antiquewhite;
+    background-color: rgb(248, 220, 184);
     margin: 0;
     padding: 0;
 }
@@ -58,3 +58,21 @@ body{
     padding: 1rem;
     margin-left: 5rem;
 }
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #ffd904;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(245, 110, 0);
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
