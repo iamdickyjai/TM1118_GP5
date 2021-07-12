@@ -4,6 +4,9 @@
         {%load static%}
         <link rel="stylesheet" href="{%static 'css/base.css'%}">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
     </head>
@@ -11,9 +14,9 @@
     <body>
         <nav class="nav-bar">
             <ul>
-                <li>D</li>
-                <li>E</li>
-                <li>T</li>
+                <a href="{%url 'index'%}"><li class="nav-item">D<span class="hidden-text">ATA</span></li></a>
+                <a href="#"><li class="nav-item">E<span class="hidden-text">VENT</span></li></a>
+                <a href="#"><li class="nav-item">T<span class="hidden-text">IME</span></li></a>
             </ul>
         </nav>
         <main class="content">

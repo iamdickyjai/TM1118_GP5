@@ -14,10 +14,44 @@ body{
     height: 100vh;
     background-color: orange;
     transition: width 200ms;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-bar ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 3rem;
+    width: 100%;
+    font-family: 'Bebas Neue', cursive;
+    text-align: center;
+}
+
+.nav-bar ul a {
+    text-decoration: none;
+    color: rgb(39, 39, 39);
+}
+
+.nav-item{
+    padding: 1rem;
 }
 
 .nav-bar:hover{
     width: 15rem;
+}
+
+.nav-bar:hover .hidden-text{
+    display: inline;
+}
+
+.nav-item:hover{
+    background-color: rgb(180, 117, 0);
+}
+
+.hidden-text{
+    display: none;
 }
 
 .content{
