@@ -11,7 +11,11 @@
 {%block content%}
 <span class="page-topic">Data</span>
 <div>
-  {{avail_venue}}
+  <form method="POST" action="">
+    {%csrf_token%}
+    {{form}}
+    <button class="btn">Click~</button>
+  </form>
 </div>
 <table class="table">
   <thead class="thead-dark">

@@ -2,8 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Data(models.Model):
-    node_id = models.CharField(help_text = "The id of the node", max_length= 10)
-    loc = models.CharField(help_text = "The location of the node", max_length=6)
+    node_id = models.CharField(max_length= 10)
+    loc = models.CharField(max_length=15)
     temp = models.DecimalField(decimal_places = 1, max_digits=5)
     hum = models.DecimalField(decimal_places = 1, max_digits=5)
     light = models.DecimalField(decimal_places = 1, max_digits=5)
