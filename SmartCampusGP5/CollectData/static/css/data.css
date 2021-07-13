@@ -48,7 +48,14 @@ select{
 }
 
 .btn{
+    font-family: 'Bebas Neue', cursive;
     border-radius: 10px;
-    padding: 0.5rem 1rem;
-    font-size: 2rem;
+    padding: 0.1rem 1rem;
+    font-size: 3rem;
+    transition: all 200ms;
+    background-color: rgb(255, 102, 0);
+}
+
+.btn:hover{
+    transform:scale(1.05, 1.05)
 }
