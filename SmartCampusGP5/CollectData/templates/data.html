@@ -10,13 +10,15 @@
 
 {%block content%}
 <span class="page-topic">Data</span>
-<div>
+
+<div class="search-location">
   <form method="POST" action="">
     {%csrf_token%}
     {{form}}
-    <button class="btn">Click~</button>
+    <button class="myBtn">Click~</button>
   </form>
 </div>
+
 <table class="table">
   <thead class="thead-dark">
     <tr class="table-header">

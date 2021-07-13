@@ -50,6 +50,10 @@ body{
     display: inline;
 }
 
+.nav-bar:hover .nav-item{
+    text-align: left;
+}
+
 .nav-item:hover{
     background-color: rgb(180, 117, 0);
     color: white;
@@ -83,3 +87,88 @@ body{
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+
+.page-topic{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 5rem;
+}
+
+  
+label{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 3rem;
+}
+
+select, input{
+    border-radius: 10px;
+    margin: 0 1rem;
+    padding: 5px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f5f3cd;
+    border: none;
+    box-shadow: 4px 3px 8px rgb(139, 139, 139);
+}
+
+input:focus{
+    outline: none;
+}
+
+.myBtn{
+    font-family: 'Bebas Neue', cursive;
+    border-radius: 10px;
+    padding: 0.1rem 1rem;
+    font-size: 3rem;
+    transition: all 200ms;
+    background-color: rgb(255, 102, 0);
+    border: none;
+}
+
+.myBtn:active, select:focus{
+    outline: none;
+}
+
+.myBtn:hover{
+    transform:scale(1.05, 1.05)
+}
+
+option:active{
+    background-color: aqua;
+}
+
+
+
+/* Table */
+.table-header{
+    background-color: chocolate;
+}
+
+.table{
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    box-shadow: 0 0 15px rgb(148, 148, 148);
+    margin: 2rem 0;
+}
+
+.table > tbody > tr > td, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > td, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > thead > tr > th{
+    border-color: rgb(77, 77, 77);
+}
+
+.table-center{
+    text-align: center;
+}
+
+.table-body{
+    background-color: rgb(246, 217, 164);
+    transition: background-color 200ms;
+}
+
+.table-body:hover{
+    background-color:rgb(185, 162, 119)
+}
