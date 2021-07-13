@@ -35,21 +35,29 @@
 
 <div class="search-result">
     {%for datum in event%}
-    <div class="block">
-        <div class="event-block">
-            Event: {{datum.event}}
+    <div class="main-block block">
+        <div class="event-block block">
+            <span class="block-header">Event</span>
+            <span class="block-result">{{datum.0.event}}</span>
         </div>
 
-        <div class="instructor-block">
-            Instructor: {{datum.instructor}}
+        <div class="instructor-block  block">
+            <span class="block-header">Instructor</span>
+            <span class="block-result">{{datum.0.instructor}}</span>
         </div>
 
-        <div class="time-block">
-            Time: {{datum.time_start}} - {{datum.time_end}}
+        <div class="time-block  block">
+            <span class="block-header">Time</span>
+            <span class="block-result">{{datum.0.time_start}} - {{datum.0.time_end}}</span>
         </div>
 
-        <div class="avg-block">
-            Average: {{datum.temp}}
+        <div class="avg-block  block">
+            <span class="block-header">Average Temperature</span>
+            {%if datum.1.temp__avg == None%}
+            <span class="block-result">No Record</span>
+            {%else%}
+            <span class="block-result">{{datum.1.temp__avg}}</span>
+            {%endif%}
         </div>
     </div>
     {%endfor%}
