@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CollectData.apps.CollectdataConfig',
+    'dashboard',
+    "VenueEvent.apps.VenueeventConfig",
+    "TimeEventData.apps.TimeeventdataConfig",
 ]
 
 MIDDLEWARE = [
