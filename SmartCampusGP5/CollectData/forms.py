@@ -17,7 +17,7 @@ class DataForm(ModelForm):
             if not skip:
                 venue.append(datum.loc)
         
-        tup = (("null", "--All--"), )
+        tup = (("null", "------All------"), )
         for item in venue:
             tup = tup + ((item, item),)
 

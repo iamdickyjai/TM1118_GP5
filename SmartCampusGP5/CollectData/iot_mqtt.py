@@ -20,7 +20,7 @@ def mqtt_on_message(client, userdata, msg):
     p.save()
 
 
-mqtt_client = mqtt.Client("C05") # Create a Client Instance
+mqtt_client = mqtt.Client("Testingman") # Create a Client Instance
 mqtt_client.on_message = mqtt_on_message
 mqtt_client.connect(mqtt_broker, mqtt_port) # Establish a connection to a broker
 print("Connect to MQTT broker")
