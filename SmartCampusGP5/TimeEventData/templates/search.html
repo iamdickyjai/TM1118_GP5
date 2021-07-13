@@ -1,26 +1,57 @@
-<html>
-    <head>
-        <title>Search time-event-data</title>
-    </head>
-    <body>
-        <h1>Please select the venue and time range:</h1><br>
+{%extends 'base.html'%}
+
+{%block style%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'css/search.css'%}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+<div class="main-content">
+    <span class="page-topic">Search Event</span>
+    <div>
+        Please select the venue and time range:
         <form method="POST" action="">
             {% csrf_token %}
-            Venue: {{ form.venue  }} <br>
-            Time Range: 
-            <input class="form-control" id="start" type="datetime-local" name="start_time">
-            to
-            <input class="form-control" id="end" type="datetime-local" name="end_time">
-            <br>
-            <button>Search</button>
-            {%for item in event%}
-            {{item}}
-            {%endfor%}
-            {%for item in envir%}
-            {{item}}
-            {%endfor%}
+            <label>Venue:</label> {{ form.venue }}
+            
+            <div class="tRange">
+                <section class="from-time input-field">
+                    <label>Time Range:</label>
+                    <input id="start" type="datetime-local" name="start_time">
+                </section>
+
+                <section class="to-time input-field">
+                    <label>To:</label>
+                    <input id="end" type="datetime-local" name="end_time">
+                </section>
+            </div>
+            <button class="myBtn">Search</button>
         </form>
+    </div>
+</div>
 
+<div class="search-result">
+{%for datum in event%}
+    <div class="block">    
+        <div class="event-block">
+            Event: {{datum.event}}
+        </div>
 
-    </body>
-</html>
+        <div class="instructor-block">
+            Instructor: {{datum.instructor}}
+        </div>
+
+        <div class="time-block">
+            Time: {{datum.time_start}} - {{datum.time_end}}
+        </div>
+
+        <div class="avg-block">
+            Average: {{datum.temp}}
+        </div>
+    </div>
+{%endfor%}
+</div>
+{%endblock%}

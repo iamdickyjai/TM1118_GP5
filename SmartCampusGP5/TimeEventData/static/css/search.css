@@ -1,0 +1,22 @@
+.main-content{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.input-field{
+    width: 100%;
+}
+
+.tRange{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#start, #end{
+    width: 100%;
+}
+
+form{
+    margin: 1rem 0;
+}
