@@ -1,0 +1,12 @@
+.search-location{
+    display: flex;
+}
+
+.search-location > *{
+    margin: 0 0.5rem;
+}
+
+.search-location > select{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

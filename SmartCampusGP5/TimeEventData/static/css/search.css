@@ -20,3 +20,25 @@
 form{
     margin: 1rem 0;
 }
+
+.match-parallel{
+    display: flex;
+}
+
+.match-parallel > *{
+    margin: 0.5rem;
+}
+
+.match-parallel > *:first-child{
+    margin-left: 0;
+}
+
+.match-parallel > *:last-child{
+    margin-right: 0;
+}
+
+
+.match-parallel > select{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

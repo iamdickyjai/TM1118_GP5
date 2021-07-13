@@ -12,11 +12,11 @@
 <div class="main-content">
     <span class="page-topic">Search Event</span>
     <div>
-        Please select the venue and time range:
+        Please select the venue and time range
         <form method="POST" action="">
             {% csrf_token %}
-            <label>Venue:</label> {{ form.venue }}
-            
+            <section class="match-parallel"><label>Venue:</label> {{ form.venue }}</section>
+
             <div class="tRange">
                 <section class="from-time input-field">
                     <label>Time Range:</label>
@@ -34,8 +34,8 @@
 </div>
 
 <div class="search-result">
-{%for datum in event%}
-    <div class="block">    
+    {%for datum in event%}
+    <div class="block">
         <div class="event-block">
             Event: {{datum.event}}
         </div>
@@ -52,6 +52,6 @@
             Average: {{datum.temp}}
         </div>
     </div>
-{%endfor%}
+    {%endfor%}
 </div>
 {%endblock%}

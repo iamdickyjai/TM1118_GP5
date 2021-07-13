@@ -94,7 +94,7 @@ body{
     font-size: 5rem;
 }
 
-  
+/* * Form CSS */
 label{
     font-family: 'Bebas Neue', cursive;
     font-size: 3rem;
@@ -102,7 +102,6 @@ label{
 
 select, input{
     border-radius: 10px;
-    margin: 0 1rem;
     padding: 5px;
     font-family: 'Open Sans', sans-serif;
     background-color: #f5f3cd;
@@ -118,7 +117,7 @@ input:focus{
     font-family: 'Bebas Neue', cursive;
     border-radius: 10px;
     padding: 0.1rem 1rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     transition: all 200ms;
     background-color: rgb(255, 102, 0);
     border: none;
@@ -132,13 +131,7 @@ input:focus{
     transform:scale(1.05, 1.05)
 }
 
-option:active{
-    background-color: aqua;
-}
-
-
-
-/* Table */
+/* * Table */
 .table-header{
     background-color: chocolate;
 }
