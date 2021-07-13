@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>Search time-event-data</title>
+    </head>
+    <body>
+        <h1>Please select the venue and time range:</h1><br>
+        <form method="POST" action="">
+            {% csrf_token %}
+            Venue: {{ form.venue  }} <br>
+            Time Range: 
+            <input class="form-control" id="start" type="datetime-local" name="start_time">
+            to
+            <input class="form-control" id="end" type="datetime-local" name="end_time">
+            <br>
+            <button>Search</button>
+            {%for item in event%}
+            {{item}}
+            {%endfor%}
+            {%for item in envir%}
+            {{item}}
+            {%endfor%}
+        </form>
+
+
+    </body>
+</html>
