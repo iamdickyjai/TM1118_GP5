@@ -5,8 +5,7 @@
 {%block style%}
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.mi
 n.css" rel="stylesheet" integrity="sha384-
-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin=
-"anonymous">
+wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -22,13 +21,15 @@ wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin=
 
 <div>
     Please select the venue(s):
-    <form method="POST" action="">
+    <form method="POST" action="{%url 'dashboard'%}">
         {% csrf_token %}
         Venue:
         <div class="labels">
-        {%for v in form.venue%}
-        <input type='checkbox' id="{{v.id_for_label}}" class="venue-select"><label for='{{v.id_for_label}}' class="select-btn">{{v.choice_label}}</label>
-        {%endfor%}
+            {%for v in form.venue%}
+            <input name="{{v.id_for_label}}" type='checkbox' id="{{v.id_for_label}}" class="venue-select"
+                value="{{v.choice_label}}">
+            <label for='{{v.id_for_label}}' class="select-btn">{{v.choice_label}}</label>
+            {%endfor%}
         </div>
         <button class="myBtn">Search</button>
     </form>
@@ -36,7 +37,7 @@ wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin=
 
 <div class="stat">
     <span class='sub-topic'>Temperature</span>
-    <div id="pivot-container-temp" class="myGraph" ></div>
+    <div id="pivot-container-temp" class="myGraph"></div>
     <hr>
     <span class='sub-topic'>Humidity</span>
     <div id="pivot-container-hum" class="myGraph"></div>
