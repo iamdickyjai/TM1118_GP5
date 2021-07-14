@@ -4,7 +4,7 @@ from django.core import serializers
 from CollectData.models import Data
 # Create your views here.
 def index(request):
-    return render(request, 'dashboard/index.html')
+    return render(request, 'dashboard/dashboard.html')
 
 def temp_data(request):
     events = Data.objects.all()

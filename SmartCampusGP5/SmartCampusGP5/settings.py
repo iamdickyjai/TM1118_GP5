@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CollectData.apps.CollectdataConfig',
-    # 'dashboard',
+    'dashboard',
     "VenueEvent.apps.VenueeventConfig",
     "TimeEventData.apps.TimeeventdataConfig",
 ]

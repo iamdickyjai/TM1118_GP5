@@ -1,0 +1,280 @@
+{%extends 'base.html'%}
+
+{%block title%}Statistic{%endblock%}
+
+{%block style%}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.mi
+n.css" rel="stylesheet" integrity="sha384-
+wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin=
+"anonymous">
+{%endblock%}
+
+{%block content%}
+<h1 class="display-3 p-3 mb-2 bg-danger text-white">IC2140 IoT Group5 Dashboard</h1>
+<script src="https://cdn.flexmonster.com/flexmonster.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.flexmonster.com/theme/orange/flexmonster.min.css" />
+
+<h1>Temperature</h1>
+<div id="pivot-container-temp" ></div>
+<hr>
+<h1>Humidity</h1>
+<div id="pivot-container-hum" ></div>
+<hr>
+<h1>Light Intensity</h1>
+<div id="pivot-container-light" ></div>
+<hr>
+<h1>Sound Level</h1>
+<div id="pivot-container-snd" ></div>
+<script>
+    function processData(dataset) {
+        var result = []
+        dataset = JSON.parse(dataset);
+        dataset.forEach(item => result.push(item.fields));
+        return result;
+    }
+</script>
+<script>
+    $.ajax({
+        url: '/dashboard/temp_data',
+        dataType: 'json',
+        success: function(data) {
+            new Flexmonster({
+                container: "#pivot-container-temp",
+                componentFolder: "https://cdn.flexmonster.com/",
+                toolbar: true,
+                report: {
+                    dataSource: {
+                        type: "json",
+                        data: processData(data),
+                        
+                        mapping: {
+                            "node_id": { "caption": "ID" },
+                            "loc": { "caption": "Location" },
+                            "temp": { "caption": "Temperature", "type": "number" },
+                            "date_created": { "caption": "Created Date", "type": "datetime", interval: "1m" }
+                        },
+                    },
+                    slice: {
+                        rows: [
+                            { uniqueName : "date_created"},
+                        ],
+                        columns: [
+                            { uniqueName : "loc"},
+                            { uniqueName : "[measures]", label : "Temperature" },
+                        ],
+                        measures: [
+                            { 
+                                uniqueName : "temp", 
+                                format : "degree",
+                                aggregation : "average",
+                            },
+                        ]
+                    },
+                    formats: [
+                        {
+                            name: "degree",
+                            decimalPlaces: 1,
+                        }
+                    ],
+                    options: {
+                        dateTimePattern: "dd/MM/yy HH:mm",
+                        showAggregationLabels: false ,
+                        viewType: "charts",
+                        chart: {
+                            type: "line",
+                        },
+                    },   
+                },
+            });
+        }
+    });
+</script>
+<script>
+    $.ajax({
+        url: '/dashboard/temp_data',
+        dataType: 'json',
+        success: function(data) {
+            new Flexmonster({
+                container: "#pivot-container-hum",
+                componentFolder: "https://cdn.flexmonster.com/",
+                //toolbar: true,
+                report: {
+                    dataSource: {
+                        type: "json",
+                        data: processData(data),
+                        
+                        mapping: {
+                            "node_id": { "caption": "ID" },
+                            "loc": { "caption": "Location" },
+                            "hum": { "caption": "Humidity", "type": "number" },
+                            "date_created": { "caption": "Created Date", "type": "datetime", interval: "1m" }
+                        },
+                    },
+                    slice: {
+                        rows: [
+                            { uniqueName : "date_created"},
+                        ],
+                        columns: [
+                            { uniqueName : "loc"},
+                            { uniqueName : "[measures]", label : "Humidity" },
+                        ],
+                        measures: [
+                            { 
+                                uniqueName : "hum", 
+                                aggregation : "average",
+                                format : "degree",
+                            },
+                        ]
+                    },
+                    formats: [
+                        {
+                            name: "degree",
+                            decimalPlaces: 1,
+                        }
+                    ],
+                    options: {
+                        dateTimePattern: "dd/MM/yy HH:mm",
+                        showAggregationLabels: false ,
+                        viewType: "charts",
+                        chart: {
+                            type: "line",
+                        },
+                    },   
+                },
+            });
+        }
+    });
+</script>
+<script>
+    $.ajax({
+        url: '/dashboard/temp_data',
+        dataType: 'json',
+        success: function(data) {
+            new Flexmonster({
+                container: "#pivot-container-light",
+                componentFolder: "https://cdn.flexmonster.com/",
+                //toolbar: true,
+                report: {
+                    dataSource: {
+                        type: "json",
+                        data: processData(data),
+                        
+                        mapping: {
+                            "node_id": { "caption": "ID" },
+                            "loc": { "caption": "Location" },
+                            "light": { "caption": "Light Intensity", "type": "number" },
+                            "date_created": { "caption": "Created Date", "type": "datetime", interval: "1m" }
+                        },
+                    },
+                    slice: {
+                        rows: [
+                            { uniqueName : "date_created"},
+                        ],
+                        columns: [
+                            { uniqueName : "loc"},
+                            { uniqueName : "[measures]", label : "Light Intensity" },
+                        ],
+                        measures: [
+                            { 
+                                uniqueName : "light", 
+                                aggregation : "average",
+                                format : "degree",
+                            },
+                        ]
+                    },
+                    formats: [
+                        {
+                            name: "degree",
+                            decimalPlaces: 1,
+                        }
+                    ],
+                    options: {
+                        dateTimePattern: "dd/MM/yy HH:mm",
+                        showAggregationLabels: false ,
+                        viewType: "charts",
+                        chart: {
+                            type: "line",
+                        },
+                    },   
+                },
+            });
+        }
+    });
+</script>
+<script>
+    $.ajax({
+        url: '/dashboard/temp_data',
+        dataType: 'json',
+        success: function(data) {
+            new Flexmonster({
+                container: "#pivot-container-snd",
+                componentFolder: "https://cdn.flexmonster.com/",
+                //toolbar: true,
+                report: {
+                    dataSource: {
+                        type: "json",
+                        data: processData(data),
+                        
+                        mapping: {
+                            "node_id": { "caption": "ID" },
+                            "loc": { "caption": "Location" },
+                            "snd": { "caption": "Sound Level(dB)", "type": "number" },
+                            "date_created": { "caption": "Created Date", "type": "datetime", interval: "1m" }
+                        },
+                    },
+                    slice: {
+                        rows: [
+                            { uniqueName : "date_created"},
+                        ],
+                        columns: [
+                            { uniqueName : "loc"},
+                            { uniqueName : "[measures]", label : "Sound Level(dB)" },
+                        ],
+                        measures: [
+                            { 
+                                uniqueName : "snd", 
+                                aggregation : "average",
+                                format : "degree",
+                            },
+                        ]
+                    },
+                    formats: [
+                        {
+                            name: "degree",
+                            decimalPlaces: 1,
+                        }
+                    ],
+                    options: {
+                        dateTimePattern: "dd/MM/yy HH:mm",
+                        showAggregationLabels: false ,
+                        viewType: "charts",
+                        chart: {
+                            type: "line",
+                        },
+                    },   
+                },
+            });
+        }
+    });
+</script>
+<script>
+    function getFeed() {
+        $.ajax({
+            url: '/dashboard/temp_data',
+            dataType: 'json',
+            success: function(data) {
+                flexmonster.updateData({
+                    data: processData(data)
+                });
+            },
+            complete:function(data) {
+                setTimeout(getFeed, 5000);
+            }
+        });
+    }
+    $(document).ready(function() {
+        setTimeout(getFeed, 5000); // 5 seconds
+    });
+</script>
+{%endblock%}
