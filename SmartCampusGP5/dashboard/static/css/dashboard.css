@@ -1,3 +1,36 @@
 .sub-topic{
     font-family: 'Open Sans', sans-serif;
 }
+
+/*.venue-select ul{
+    list-style-type: "-";
+    overflow-x:hidden;
+    white-space:nowrap;
+}*/
+
+.venue-select{
+    display: none;
+}
+
+.labels{
+    margin: 2rem 0;
+}
+
+.select-btn{
+    padding: 2px 1rem;
+    background-color: rgb(64, 230, 31);
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.venue-select:checked+.select-btn{
+    background-color: crimson;
+}

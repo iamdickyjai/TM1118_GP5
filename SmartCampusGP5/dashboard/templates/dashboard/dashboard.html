@@ -20,6 +20,20 @@ wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin=
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.flexmonster.com/theme/orange/flexmonster.min.css" />
 
+<div>
+    Please select the venue(s):
+    <form method="POST" action="">
+        {% csrf_token %}
+        Venue:
+        <div class="labels">
+        {%for v in form.venue%}
+        <input type='checkbox' id="{{v.id_for_label}}" class="venue-select"><label for='{{v.id_for_label}}' class="select-btn">{{v.choice_label}}</label>
+        {%endfor%}
+        </div>
+        <button class="myBtn">Search</button>
+    </form>
+</div>
+
 <div class="stat">
     <span class='sub-topic'>Temperature</span>
     <div id="pivot-container-temp" class="myGraph" ></div>

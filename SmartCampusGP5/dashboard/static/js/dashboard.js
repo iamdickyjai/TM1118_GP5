@@ -12,7 +12,7 @@ $.ajax({
         new Flexmonster({
             container: "#pivot-container-temp",
             componentFolder: "https://cdn.flexmonster.com/",
-            toolbar: true,
+            //toolbar: true,
             report: {
                 dataSource: {
                     type: "json",

@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from . import iot_mqtt
 from .models import Data
 from django.db.models import Count

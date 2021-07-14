@@ -25,4 +25,5 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')), #Inlcude app "dashboard/urls.py"
     path('event/', include('VenueEvent.urls')),
     path('time/', include("TimeEventData.urls")),
+    path("analysis/", include('Analysis.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
