@@ -10,3 +10,10 @@ def temp_data(request):
     events = Data.objects.all()
     data = serializers.serialize('json', events) #Translating Django models into JSON formats
     return JsonResponse(data, safe=False) #Returns a string that contains an array object
+
+def test(request):
+    # 
+    # 
+    # 
+    dummy = 1
+    return render(request, 'dashboard/dd.html')
