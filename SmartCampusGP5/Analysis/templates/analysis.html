@@ -1,0 +1,37 @@
+{%extends 'base.html'%}
+
+{%block title%}Analysis{%endblock%}
+
+{%load static%}
+{%block style%}
+<link rel="stylesheet" href="{%static 'css/analysis.css'%}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+<span class="page-topic">Analysis</span>
+<div class="grid-container">
+    <div class="block most">
+        <div class="block-header">Venue with most record</div>
+        <div class="block-result">{{max_venue.0}} with {{max_venue.1}} records</div>
+    </div>
+    <div class="block hot">
+        <div class="block-header">Warning: The following venue is hot!</div>
+        {%for datum in venue_group_by_temp%}
+        {%if datum.1 > 25%}
+        <div class="block-result">{{datum.0}} with {{datum.1}}°C</div>
+        {%endif%}
+        {%endfor%}
+    </div>
+    <div class="block cold">
+        <div class="block-header">Warning: The following venus is cold!</div>
+        {%for datum in venue_group_by_temp%}
+        {%if datum.1 < 22%}
+        <div class="block-result">{{datum.0}} with {{datum.1}}°C</div>
+        {%endif%}
+        {%endfor%}
+    </div>
+</div>
+{%endblock%}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'dashboard',
     "VenueEvent.apps.VenueeventConfig",
     "TimeEventData.apps.TimeeventdataConfig",
+    "Analysis.apps.AnalysisConfig",
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,79 @@
+.grid-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.block{
+    padding: 1rem;
+    margin:1rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 4px 3px 10px rgb(121, 114, 108);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    animation-name: fade-in;
+    animation-duration: 2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    --delay: 300ms;
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}    
+}
+
+.block:nth-child(1){
+    animation-delay: calc(var(--delay) * 1);
+}
+
+.block:nth-child(2){
+    animation-delay: calc(var(--delay) * 2);
+}
+
+.block:nth-child(3){
+    animation-delay: calc(var(--delay) * 3);
+}
+
+.block:nth-child(4){
+    animation-delay: calc(var(--delay) * 4);
+}
+
+.block:nth-child(5){
+    animation-delay: calc(var(--delay) * 5);
+}
+.block:nth-child(6){
+    animation-delay: calc(var(--delay) * 6);
+}
+.block:nth-child(7){
+    animation-delay: calc(var(--delay) * 7);
+}
+.block:nth-child(8){
+    animation-delay: calc(var(--delay) * 8);
+}
+
+.block-header{
+    font-family: 'Bebas Neue', cursive;
+}
+
+.block-result{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.most{
+    background-color: rgb(219, 190, 24);
+}
+
+.hot{
+    background-color: red;
+}
+
+.cold{
+    background-color: aqua;
+}
