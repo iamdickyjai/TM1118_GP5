@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("data/", include("CollectData.urls")),
+    path("", include("CollectData.urls")),
     path('dashboard/', include('dashboard.urls')), #Inlcude app "dashboard/urls.py"
     path('event/', include('VenueEvent.urls')),
     path('time/', include("TimeEventData.urls")),

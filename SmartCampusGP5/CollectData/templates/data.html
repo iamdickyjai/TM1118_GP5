@@ -31,7 +31,7 @@
     </tr>
   </thead>
   <tbody>
-    {%for datum in data%}
+    {%for datum in page_obj%}
     <tr class="table-body">
       <th class="table-center">{{datum.node_id}}</th>
       <td class="table-center">{{datum.loc}}</td>
@@ -43,4 +43,22 @@
     {%endfor%}
   </tbody>
 </table>
+
+<span class="page_number">
+  {%if page_obj.has_previous%}
+  <a href="?page=1">First</a>
+  <a href="?page={{page_obj.previous_page_number}}">&laquo;</a>
+  {%endif%}
+
+  <span class="current">
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+  </span>
+
+  {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+    <a href="?page={{ page_obj.paginator.num_pages }}">Last </a>
+  {% endif %}
+</span>
+
+
 {%endblock%}

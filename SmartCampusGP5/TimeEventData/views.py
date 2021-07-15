@@ -39,6 +39,7 @@ def search(request):
                 "form": form,
                 # "event": event_data,
                 "event": avg_temp_list,
+                'count': str(len(avg_temp_list)),
             }
     else:
         form = TimeEventForm()

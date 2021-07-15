@@ -14,7 +14,7 @@ def readExcel(request):
 
     for x in range(1, len(df)):
         events = Event()
-        events.venue = df.loc[x, df.columns[0]]
+        events.venue = df.loc[x, df.columns[0]].upper()
         # events.date =  str(datetime.datetime.strptime(
         #     str(df.loc[x, df.columns[1]]), "%Y-%m-%d %H:%M:%S"
         # ).date())

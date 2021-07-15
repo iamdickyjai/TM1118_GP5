@@ -3,6 +3,9 @@ from .models import Data
 from django.db.models import Count
 from .forms import DataForm
 from django.shortcuts import redirect, render
+from django.views import generic
+
+from django.core.paginator import Paginator
 
 # Create your views here.
 def index(request):
@@ -23,8 +26,23 @@ def index(request):
     else:
         form = DataForm()
 
+    p = Paginator(data, 50)
+    page_number = request.GET.get("page")
+    page_obj = p.get_page(page_number)
+
     context = {
-        "data": data,
         "form": form,
+        'page_number': page_number,
+        "page_obj": page_obj,
+
     }
     return render(request, "data.html", context=context)
+
+class DataListView(generic.ListView):
+    model = Data
+
+    context_object_name = "my_data_list"
+    queryset = Data.objects.all()
+    template_name =  "data.html"
+
+    p = Paginator(queryset, 50)

@@ -5,7 +5,19 @@
 
 @media only screen and (max-width: 1050px){
     :root{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    :root{
         font-size: 8px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    :root{
+        font-size: 6px;
     }
 }
 

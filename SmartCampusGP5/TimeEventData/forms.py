@@ -9,19 +9,19 @@ class TimeEventForm(forms.Form):
     for datum in data:
         skip = False
         for item in venue:
-            if datum.loc == item:
+            if datum.loc.upper() == item.upper():
                 skip =True
                 break
         if not skip:
-            venue.append(datum.loc)
+            venue.append(datum.loc.upper())
     for datum in event:
         skip = False
         for item in venue:
-            if datum.venue == item:
+            if datum.venue.upper() == item.upper():
                 skip =True
                 break
         if not skip:
-            venue.append(datum.venue)
+            venue.append(datum.venue.upper)
 
     tup = ()
     for item in venue:

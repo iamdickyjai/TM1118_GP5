@@ -71,6 +71,14 @@ form{
     justify-content: stretch;
 }
 
+.main-block:hover{
+    background-color: rgb(255, 136, 0);
+}
+
+.main-block:hover>.flex-wrapper>.event-block, .main-block:hover>.flex-wrapper>.instructor-block, .main-block:hover>.avg-block, .main-block:hover>.time-block{
+    background-color: rgb(236, 162, 52);
+}
+
 .sublock{
     padding: 1rem;
 }
