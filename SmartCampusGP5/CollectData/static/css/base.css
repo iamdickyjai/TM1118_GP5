@@ -1,5 +1,12 @@
 :root{
-    font-size: 16px;
+    --default-font-size: 16px;
+    font-size: var(--default-font-size);
+}
+
+@media only screen and (max-width: 1050px){
+    :root{
+        font-size: 8px;
+    }
 }
 
 body{
