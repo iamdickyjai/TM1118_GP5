@@ -1,4 +1,4 @@
-from . import iot_mqtt
+# from . import iot_mqtt
 from .models import Data
 from django.db.models import Count
 from .forms import DataForm
@@ -32,17 +32,17 @@ def index(request):
 
     context = {
         "form": form,
-        'page_number': page_number,
+        "page_number": page_number,
         "page_obj": page_obj,
-
     }
     return render(request, "data.html", context=context)
+
 
 class DataListView(generic.ListView):
     model = Data
 
     context_object_name = "my_data_list"
     queryset = Data.objects.all()
-    template_name =  "data.html"
+    template_name = "data.html"
 
     p = Paginator(queryset, 50)

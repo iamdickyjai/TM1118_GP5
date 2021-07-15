@@ -17,6 +17,8 @@
         <div class="block-header">Venue with most record</div>
         <div class="block-result">{{max_venue.0}} with {{max_venue.1}} records</div>
     </div>
+
+    {%if hot%}
     <div class="block hot">
         <div class="block-header">Warning: The following venue is hot!</div>
         {%for datum in venue_group_by_temp%}
@@ -25,13 +27,21 @@
         {%endif%}
         {%endfor%}
     </div>
+    {%endif%}
+
+    {%if cold%}
     <div class="block cold">
         <div class="block-header">Warning: The following venus is cold!</div>
         {%for datum in venue_group_by_temp%}
-        {%if datum.1 < 22%}
-        <div class="block-result">{{datum.0}} with {{datum.1}}°C</div>
-        {%endif%}
+        {%if 22 > datum.1%}
+        <div class="block-result">
+            {{datum.0}} with {{datum.1}}°C
+        </div>{%endif%}
         {%endfor%}
     </div>
+    {%endif%}
+
+
+
 </div>
 {%endblock%}

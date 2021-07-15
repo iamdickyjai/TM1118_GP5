@@ -3,21 +3,9 @@
     font-size: var(--default-font-size);
 }
 
-@media only screen and (max-width: 1050px){
+@media only screen and (max-width: 600px){
     :root{
-        font-size: 12px;
-    }
-}
-
-@media only screen and (max-width: 800px){
-    :root{
-        font-size: 8px;
-    }
-}
-
-@media only screen and (max-width: 400px){
-    :root{
-        font-size: 6px;
+        font-size: 4px;
     }
 }
 
