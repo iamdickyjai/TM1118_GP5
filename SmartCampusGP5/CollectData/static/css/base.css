@@ -184,3 +184,7 @@ input:focus{
 .table-body:hover{
     background-color:rgb(185, 162, 119)
 }
+
+.alert-box{
+    background-color: gray;
+}

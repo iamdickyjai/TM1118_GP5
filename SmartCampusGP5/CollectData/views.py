@@ -1,15 +1,24 @@
 from . import iot_mqtt
+from . import m5_mqtt as yoyo
 from django.http.response import JsonResponse
 from .models import Data
 from django.db.models import Count
 from .forms import DataForm
 from django.shortcuts import redirect, render
-from django.template.loader import render_to_string
 from django.core.paginator import Paginator
 from django.http import HttpResponse
 import json
 
 data = Data.objects.all()
+
+def alert(request):
+    alert = yoyo.alert
+    if alert:
+        message = "The object is moved!"
+    else:
+        message = "Nothing :)"
+    test = {"alert_result": message}
+    return JsonResponse(test)
 
 # Create your views here.
 def index(request):
