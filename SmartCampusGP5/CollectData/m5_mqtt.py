@@ -14,20 +14,23 @@ def mqtt_on_message(client, userdata, msg):
     global alert
     global countOff
     # Do something
-    d_msg = str(msg.payload.decode("utf-8"))
-    m5Data = json.loads(d_msg)
-    # if iotData["id"] == ID:
-    #     print("Received message on topic %s : %s" % (msg.topic, iotData))
-    #
-    print("bibibibibibi")
-    counter = m5Data["MOVED"]
-    if counter == "Yes":
-        countOff = 10
-        alert = True
-    if counter == "No" and countOff >= 0:
-        countOff -= 1
-    if countOff <= 0:
-        alert = False
+    try:
+        d_msg = str(msg.payload.decode("utf-8"))
+        m5Data = json.loads(d_msg)
+        # if iotData["id"] == ID:
+        #     print("Received message on topic %s : %s" % (msg.topic, iotData))
+        #
+        print("bibibibibibi")
+        counter = m5Data["MOVED"]
+        if counter == "Yes":
+            countOff = 10
+            alert = True
+        if counter == "No" and countOff >= 0:
+            countOff -= 1
+        if countOff <= 0:
+            alert = False
+    except json.decoder.JSONDecodeError:
+        print("Wrong data received in M5.")
     
 
 
