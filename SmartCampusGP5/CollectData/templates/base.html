@@ -9,29 +9,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     {%block style%}{%endblock%}
 </head>
 
 <body class="body">
     <nav class="nav-bar">
         <ul>
-            <a href="{%url 'index'%}">
-                <li class="first-item"><span class="hidden-text navbar-title">GROUP 5</span>{%load static%}<img src="{%static 'img/arrow.png'%}" id="arrow"></li>
+            <a href="{%url 'index'%}" class="a-link">
+                <li class="first-item"><span class="hidden-text navbar-title">GROUP 5</span>{%load static%}<img
+                        src="{%static 'img/arrow.png'%}" id="arrow"></li>
             </a>
-            <a href="{%url 'index'%}">
+            <a href="{%url 'index'%}" class="a-link">
                 <li class="nav-item">L<span class="hidden-text">IST</span></li>
             </a>
-            <a href="{%url 'dashboard'%}">
+            <a href="{%url 'dashboard'%}" class="a-link">
                 <li class="nav-item">D<span class="hidden-text">ASHBOARD</span></li>
             </a>
-            <a href="{%url 'search'%}">
+            <a href="{%url 'search'%}" class="a-link">
                 <li class="nav-item">T<span class="hidden-text">IME EVENT</span></li>
             </a>
-            <a href="{%url 'addEvent'%}">
+            <a href="{%url 'addEvent'%}" class="a-link">
                 <li class="nav-item">N<span class="hidden-text">EW EVENT</span></li>
             </a>
-            <a href="{%url 'analysis'%}">
+            <a href="{%url 'analysis'%}" class="a-link">
                 <li class="nav-item">A<span class="hidden-text">NALYSIS</span></li>
             </a>
         </ul>
@@ -46,7 +47,7 @@
 
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             setInterval(function(){
                 console.log("hihihi");
                 $.ajax(
@@ -58,7 +59,7 @@
                     }
                 })
             }, 5000)
-        </script>
+        </script> -->
     </main>
 
 </body>
