@@ -25,7 +25,6 @@ def index(request):
         .order_by("temp")
     )
 
-    print(venue_group_by_temp)
     temp_list = []
     for datum in venue_group_by_temp:
         temp_list.append((datum[0], math.floor(datum[1] * 100) / 100))

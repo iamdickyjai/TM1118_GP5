@@ -22,43 +22,109 @@
 <table class="table">
   <thead class="thead-dark">
     <tr class="table-header">
-      <th scope="col" class="table-center">Node_id</th>
+      <th scope="col" class="table-center">Node ID</th>
       <th scope="col" class="table-center">Location</th>
       <th scope="col" class="table-center">Temp</th>
       <th scope="col" class="table-center">Humidity</th>
       <th scope="col" class="table-center">Light</th>
       <th scope="col" class="table-center">Sound Level</th>
+      <th scope="col" class="table-center">Date Created</th>
     </tr>
   </thead>
-  <tbody>
-    {%for datum in page_obj%}
+  <tbody id="myTable-body">
+    {%for datum in page_list%}
     <tr class="table-body">
-      <th class="table-center">{{datum.node_id}}</th>
-      <td class="table-center">{{datum.loc}}</td>
-      <td class="table-center">{{datum.temp}}</td>
-      <td class="table-center">{{datum.hum}}</td>
-      <td class="table-center">{{datum.light}}</td>
-      <td class="table-center">{{datum.snd}}</td>
+      <th class="table-center" name="{{forloop.counter0}}_node_id">{{datum.node_id}}</th>
+      <td class="table-center" name="{{forloop.counter0}}_loc">{{datum.loc}}</td>
+      <td class="table-center" name="{{forloop.counter0}}_temp">{{datum.temp}}</td>
+      <td class="table-center" name="{{forloop.counter0}}_hum">{{datum.hum}}</td>
+      <td class="table-center" name="{{forloop.counter0}}_light">{{datum.light}}</td>
+      <td class="table-center" name="{{forloop.counter0}}_snd">{{datum.snd}}</td>
+      <td class="table-center" name="{{forloop.counter0}}_date_created">{{datum.date_created}}</td>
     </tr>
     {%endfor%}
   </tbody>
 </table>
 
 <span class="page_number">
-  {%if page_obj.has_previous%}
-  <a href="?page=1">First</a>
-  <a href="?page={{page_obj.previous_page_number}}">&laquo;</a>
+  <span id="previous-part">
+  {%if has_previous%}
+    <a id="first-page" name="1" class="a">First</a>
+    <a id="pervious-page" name="{{previous_page_number}}" class="a">&laquo;</a>
   {%endif%}
-
-  <span class="current">
-    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
   </span>
 
-  {% if page_obj.has_next %}
-  <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
-  <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+  <span class="current">
+    Page <span id="current-page-number">{{ page_number }}</span> of <span id='current-total-page'>{{ total_page }}.</span>
+  </span>
+
+  <span id="next-part">
+  {% if has_next %}
+    <a id="next-page" name="{{ next_page_number }}" class="a">&raquo;</a>
+    <a id="last-page" name="{{ total_page }}" class="a">Last</a>
   {% endif %}
+  </span>
+
+  <!-- <a name="169" class="a">Test</a> -->
+  <span class="test"></span>
 </span>
 
+<!-- Import JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).on('click', '.a' ,function (){
+page_no = $(this).attr("name");
+$.ajax(
+{
+    type:"GET",
+    url: "",
+    data:{
+             page_no: page_no
+    },
+    success: function( data ) 
+    {
+      var html = ""
+      for(var i = 0;i<data['page_list'].length;i++){
+        html += "<tr class='table-body'>";
+        html += "<th class='table-center' name='"+ i +"_node_id'>" + data['page_list'][i]['node_id'] + "</th>";
+        html += "<td class='table-center' name='"+ i +"_loc'>" + data['page_list'][i]['loc']+"</td>";
+        html += "<td class='table-center' name='"+ i +"_temp'>" + data['page_list'][i]['temp']+"</td>";
+        html += "<td class='table-center' name='"+ i +"_hum'>" + data['page_list'][i]['hum']+"</td>";
+        html += "<td class='table-center' name='"+ i +"_light'>" + data['page_list'][i]['light']+"</td>";
+        html += "<td class='table-center' name='"+ i +"_snd'>" + data['page_list'][i]['snd']+"</td>";
+        html += "<td class='table-center' name='"+ i +"_date_created'>" + data['page_list'][i]['date_created']+"</td>";
+        html += "</tr>";
+      }
+      $('#myTable-body').html(html);
+
+      if(data['has_next']){
+        $("#next-page").attr("name", data['next_page_number']);
+        html2 = "<a id='next-page' name='" + data['next_page_number'] + "' class='a'>&raquo;</a>";
+        html2 += "<a id='last-page' name='" + data['total_page'] + "' class='a'>Last</a>";
+        $("#next-part").html(html2);
+        $("#next-part").show();
+      }
+      else{
+        $("#next-part").hide();
+      }
+      if(data['has_previous']){
+        $("#previous-page").attr("name", data['previous_page_number']);
+        html3 = "<a id='first-page' name='1' class='a'>First</a>";
+        html3 += "<a id='previous-page' name='" + data['previous_page_number'] + "' class='a'>&laquo;</a>";
+        $("#previous-part").html(html3);
+        $("#previous-part").show();
+      }
+      else{
+        $("#previous-part").hide();
+      }
+
+      $("#current-page-number").text(data["page_number"]);
+      $("#current-total-page").text(data['total_page']);
+      // $('.test').text(data['page_list'][0]['id'])
+      // $(this).attr(data[0].id + "_node_id").text(data[0].node_id);
+    }
+ })
+});
+</script>
 
 {%endblock%}

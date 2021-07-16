@@ -21,7 +21,6 @@ def index(request):
             result_form_web = request.POST.get("id_venue_{}".format(x))
             if result_form_web:
                 venue.append(result_form_web)
-            print(venue)
         # if form.is_valid():
         #     form_venue = form.cleaned_data["venue"]
         #     if form_venue != "null":
