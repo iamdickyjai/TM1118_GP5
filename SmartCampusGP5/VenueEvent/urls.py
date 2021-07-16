@@ -2,6 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("", views.index, name="event"),
+    path("", views.add, name="addEvent"),
     path("readExcel/", views.readExcel),
 ]

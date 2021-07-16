@@ -12,21 +12,24 @@ mqtt_topic = "iot/sensor-CD"
 
 def mqtt_on_message(client, userdata, msg):
     # Do something
-    d_msg = str(msg.payload.decode("utf-8"))
-    iotData = json.loads(d_msg)
-    # if iotData["id"] == ID:
-    #     print("Received message on topic %s : %s" % (msg.topic, iotData))
-    #
-    print("yoyoyoyoyo")
-    p = Data(
-        node_id=iotData["node_id"],
-        loc=iotData["loc"],
-        temp=iotData["temp"],
-        hum=iotData["hum"],
-        light=iotData["light"],
-        snd=iotData["snd"],
-    )
-    p.save()
+    try:
+        d_msg = str(msg.payload.decode("utf-8"))
+        iotData = json.loads(d_msg)
+        # if iotData["id"] == ID:
+        #     print("Received message on topic %s : %s" % (msg.topic, iotData))
+        #
+        print("yoyoyoyoyo")
+        p = Data(
+            node_id=iotData["node_id"],
+            loc=iotData["loc"],
+            temp=iotData["temp"],
+            hum=iotData["hum"],
+            light=iotData["light"],
+            snd=iotData["snd"],
+        )
+        p.save()
+    except json.decoder.JSONDecodeError:
+        print("Wrong data received.")
 
 
 mqtt_client = mqtt.Client("BLBALBALBL")  # Create a Client Instance

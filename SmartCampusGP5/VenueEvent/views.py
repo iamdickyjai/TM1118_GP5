@@ -1,13 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Event
+from .forms import AddEventForm, SearchEventForm
 import os, pandas as pd
 import xlrd
 import datetime
+from . import event_detect
+from django.core.paginator import Paginator
 
 # Create your views here.
-def index(request):
-    return render(request, "event.html")
-
 def readExcel(request):
     
     df = pd.read_excel("Venue-Event.xlsx")
@@ -29,3 +29,16 @@ def readExcel(request):
         events.save()
 
     return render(request, "excel.html")
+
+def add(request):
+    if request.method=="POST":
+        form = AddEventForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            return redirect("/time/")  
+    else:
+        form = AddEventForm()
+    
+    context = {"form" : form}
+    return render(request, "add.html", context)

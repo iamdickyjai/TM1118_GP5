@@ -38,9 +38,9 @@ def temp_data(request):
     # one_h_ago = timezone.now() - timezone.timedelta(hours=72)
     # events = Data.objects.filter(loc__in=venue).filter(date_created__gte=one_h_ago)
     # events = Data.objects.filter(date_created__gte=one_h_ago)
-    events = Data.objects.all()[:100]
+    events = Data.objects.all().order_by("-date_created")[:100]
     if "All" not in venue:
-        events = Data.objects.filter(loc__in=venue)[:100]
+        events = Data.objects.filter(loc__in=venue).order_by("-date_created")[:100]
     data = serializers.serialize(
         "json", events
     )  # Translating Django models into JSON formats

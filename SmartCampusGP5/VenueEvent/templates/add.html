@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+<!--<html>
+    <head>
+        <title>IC2140's Assignment 1</title>
+    </head>
+    <body>
+        <h1>IC2140's Blog</h1>
+        <h2>Add new Entry</h2>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Submit</button>
+        </form>
+    </body>
+</html>-->
+
+{%block title%}New Event{%endblock%}
+
+{%block style%}
+{%load static%}
+<link rel="stylesheet" href="{%static 'css/search.css'%}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+{%endblock%}
+
+{%block content%}
+<span class="page-topic">New Event</span>
+
+<form method="POST" action="" class="search-location">
+  {%csrf_token%}
+  <section class="match-parallel"><label>Venue:</label> {{ form.venue }}</section>
+  <section class="match-parallel"><label>Time Start:</label> {{ form.time_start }}</section>
+  <section class="match-parallel"><label>Time End:</label> {{ form.time_end }}</section>
+  <section class="match-parallel"><label>Event:</label> {{ form.event }}</section>
+  <section class="match-parallel"><label>instructor:</label> {{ form.instructor }}</section>
+  <button class="myBtn">Submit</button>
+</form>
+{%endblock%}
