@@ -17,6 +17,7 @@ def alert(request):
         message = "The object is moved!"
     else:
         message = "Nothing :)"
+    print(message)
     test = {"alert_result": message}
     return JsonResponse(test)
 

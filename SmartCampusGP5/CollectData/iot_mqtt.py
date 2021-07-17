@@ -28,7 +28,7 @@ def mqtt_on_message(client, userdata, msg):
             snd=iotData["snd"],
         )
         p.save()
-    except json.decoder.JSONDecodeError:
+    except (json.decoder.JSONDecodeError, KeyError):
         print("Wrong data received.")
 
 

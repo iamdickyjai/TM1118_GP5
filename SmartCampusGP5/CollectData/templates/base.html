@@ -47,7 +47,7 @@
 
         <!-- JQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <!-- <script type="text/javascript">
+        <script type="text/javascript">
             setInterval(function(){
                 console.log("hihihi");
                 $.ajax(
@@ -56,10 +56,18 @@
                     success:function(data){
                         $('.alert-box').show();
                         $("#alert-content").text(data['alert_result']);
+                        if(data['alert_result'] == "The object is moved!"){
+                            $(".alert-box").css("background-color", " rgb(243, 40, 4)");
+                            $(".alert-box").css("box-shadow", "0 0 15px rgb(255, 60, 0)");
+                        }
+                        else{
+                            $(".alert-box").css("background-color", " grey");
+                            $(".alert-box").css("box-shadow", "0 0 15px black");
+                        }
                     }
                 })
             }, 5000)
-        </script> -->
+        </script>
     </main>
 
 </body>

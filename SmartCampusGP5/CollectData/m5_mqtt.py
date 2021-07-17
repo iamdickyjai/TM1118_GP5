@@ -23,13 +23,13 @@ def mqtt_on_message(client, userdata, msg):
         print("bibibibibibi")
         counter = m5Data["MOVED"]
         if counter == "Yes":
-            countOff = 10
+            countOff = 5
             alert = True
         if counter == "No" and countOff >= 0:
             countOff -= 1
         if countOff <= 0:
             alert = False
-    except json.decoder.JSONDecodeError:
+    except (json.decoder.JSONDecodeError,  KeyError):
         print("Wrong data received in M5.")
     
 
