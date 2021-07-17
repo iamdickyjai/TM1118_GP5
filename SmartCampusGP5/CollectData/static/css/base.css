@@ -38,6 +38,7 @@
     .a-link:first-child{
         display:none;
     }
+    
 }
 
 @media only screen and (min-width: 850px){
@@ -241,4 +242,5 @@ input:focus{
     color: white;
     box-shadow: 0 0 15px black;
     transition: all 200ms;
+    margin-bottom: 3rem;
 }
